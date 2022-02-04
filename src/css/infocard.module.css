@@ -1,0 +1,53 @@
+.workpsace-cards{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row;
+    align-items: center;
+    width:240px;
+    height:100px;
+    margin-right: 10px;
+    background-color:white;
+    /* border-radius: 10px; */
+    padding-left: 20px;
+    /* padding: 20px; */
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+
+  }
+  .workspace-card-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:60px;
+    min-width:60px;
+    height:60px;
+    min-height:60px;
+    border-radius: 200px;
+    margin-right: 20px;
+  
+    
+  }
+
+  .workspace-card-icon svg{
+    font-size: 300%;
+  }
+  .workspace-card-description .card-numbers{
+    font-size: 150%;
+    width: 100%;
+    font-weight: bolder;
+    color: #878A8D;
+  }
+.card-descriptions-text{
+    font-size: 12px;
+    width: 100%;
+    color: #878A8D;
+    font-weight: normal;
+    /* font-family: helvetica; */
+  }
+  .workspace-card-description{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column;
+    font-weight: bolder;
+    color: #878A8D;
+    width: 100%;
+  }

@@ -1,0 +1,63 @@
+Route End Points Plan
+
+Public View Actor
+* ./:page/:subpage/:page //landing page if not authenticated
+* ./:page/:subpage //landing page if not authenticated
+* ./:page //landing page if not authenticated
+* ./  //landing page 
+* ./* // Landing page
+
+Year group members access
+* ./member/register 
+* . /member/login
+* . /member /logout	
+* . /member /home/dashboard/projects  
+* . /member /home/dashboard/news  
+* . /member /home/dashboard/news/id  
+* . /member /home/dashboard/gallery  
+* . /member /home/dashboard/gallery/album_id  
+* . /member /home/dashboard/gallery/album_id/id  
+* . /member /home/dashboard/projects/view/id  //view projects
+* . /member /home/dashboard/projects/contribute/id
+* . /member /home/settings    //settings
+
+Super admin access
+* .casantey/almamater/register 	//Registration page 
+* .casantey/almamater/login	//Login
+* . casantey/almamater /home/dashboard 
+* . casantey/almamater /home/members
+* . casantey/almamater /home/add_members
+* . casantey/almamater /home/view_admins
+* . casantey/almamater /home/settings  
+* . casantey/almamater /home/logout  
+
+Alma mater admin access
+* ./mainadmin/register 	 
+* ./mainadmin/login	
+* ./mainadmin/home/dashboard 
+* ./mainadmin /home/yeargroups
+* ./mainadmin /home/yeargroups/members
+* ./mainadmin /home/creategroup
+* ./mainadmin /home/createproject
+* ./mainadmin /home/createnews
+* ./mainadmin /home/sendnotification
+* ./mainadmin /home/addgroups
+* ./mainadmin/home/viewadmins
+* . /mainadmin/home/settings  
+* . /mainadmin/home/logout  
+
+Year Group admin access
+* ./groupadmin/register 	 
+* ./groupadmin/login	
+* ./groupadmin/home/dashboard 
+* ./groupadmin /home/members
+* ./groupdmin /home/approvemembers
+* ./groupadmin/home/viewadmins
+* ./groupadmin /home/createproject
+* ./groupadmin /home/createnews
+* ./groupadmin /home/sendnotification
+* . /groupadmin/home/settings  
+* . /groupadmin/home/logout  
+
+
+

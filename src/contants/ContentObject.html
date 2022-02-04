@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+
+/** Every object should have id as the first property [id is constant for all] */
+
+
+const announcementObject = [
+    {
+        "senderName":"Nathaniel",
+        "adminType":"Institution",
+        "organizationName":"Kwame Nkrumah University of Science and Technology",
+        "message":"Home coming is almost here  20-04-2002, are you ready?",
+        "created_at":"20-2-2 GMT 00:00",
+    },
+    {
+        "senderName":"Nathaniel",
+        "adminType":"Group",
+        "organizationName":"Kwame Nkrumah University of Science and Technology",
+        "message":"Home coming is almost here  20-04-2002, are you ready?",
+        "created_at":"20-2-2 GMT 00:00",
+
+    }
+]
+
+const topContributers = [
+    {
+        "name":"Nathaniel Assan Ewudzi",
+        "amount":"2000",
+        "projectName":"Buy school bus for form threes",
+        "organizationName":"Kwame Nkrumah University of Science and Technology",
+    },
+    {
+        "name":"Nathaniel Assan Ewudzi",
+        "amount":"$2000",
+        "projectName":"Buy school bus for form threes",
+        "organizationName":"Unity Hall Kwame Conti",
+    },
+    
+]
+const projectObject = [
+    {
+        "organizationId":"281",
+        "organizationType":"this must be either group or institution",
+        "projectName":"Buy school bus for form threes",
+        "amountNeeded":"6000",
+        "amountObtained":"Buy school bus for form threes",
+        "about":[
+            {'aboutImage':"image url"},
+            {'aboutDetails':"detailed desciption of project"}
+        ],
+        "finishDate":"20-3-2030",
+        "stages":[
+            {
+                "stageName":"Purhasing Items",
+                "amountAllocated":"$100",
+                "endDate":"Mon Sep 20 2021 00:25:29 GMT+0000"
+            },
+            {
+                "stageName":"Purhasing Items",
+                "amountAllocated":"$100",
+                "endDate":"Mon Sep 20 2021 00:25:29 GMT+0000"
+            },
+            {
+                "stageName":"Purhasing Items",
+                "amountAllocated":"$100",
+                "endDate":"Mon Sep 20 2021 00:25:29 GMT+0000"
+            },
+        ],
+        "contributers":[
+            {
+                "name":"Nathaniel Assan Ewudzi",
+                "amount":"2000",
+                "image":"image url",
+            },
+            {
+                "name":"Nathaniel Assan Ewudzi",
+                "amount":"2000",
+                "image":"image url",
+            },
+            {
+                "name":"Nathaniel Assan Ewudzi",
+                "amount":"2000",
+                "image":"image url",
+            },
+        ],
+        "comments":[
+            {
+               "id":"1",
+               "projectId":"3",
+               "sender":"Amanor Kofi",
+               "date":"26th September",
+               "body":"Good to see something been done about this"
+            },
+            {
+               "id":"1",
+               "projectId":"3",
+               "sender":"Amanor Kofi",
+               "date":"26th September",
+               "body":"Good to see something been done about this"
+            },
+            {
+               "id":"1",
+               "projectId":"3",
+               "sender":"Amanor Kofi",
+               "date":"26th September",
+               "body":"Good to see something been done about this"
+            },
+           
+         ],
+    }, //End of a single project object in array of projects
+]
+
+const gallery = [
+        {
+            "prpjectName":"Buy school bus for form three students",
+            "prpjectId":"23",
+            "caption":"Image of Car purchased for distribution",
+            "image":"image url",
+            "created_at":"20-2-2 GMT 00:00",
+        },
+        {
+            "prpjectName":"Buy school bus for form three students",
+            "prpjectId":"11",
+            "caption":"Image of Car purchased for distribution",
+            "image":"image url",
+            "created_at":"20-2-2 GMT 00:00",
+        },
+        {
+            "prpjectName":"Buy school bus for form three students",
+            "prpjectId":"wew",
+            "caption":"Image of Car purchased for distribution",
+            "image":"image url",
+            "created_at":"20-2-2 GMT 00:00",
+        },
+       
+]
+const allInstitutionObject = [
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"20000",
+       "projectsCount":"100",
+       "groupsCount":"300",
+       "about":[
+            {'aboutImage':"image url"},
+            {'aboutDetails':"detailed desciption of project"}
+        ],
+    },
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"5000",
+       "projectsCount":"10",
+       "groupsCount":"300",
+       "about":[
+            {'aboutImage':"image url"},
+            {'aboutDetails':"detailed desciption of project"}
+        ],
+    }
+]
+
+
+const joinedInstitutionObject = [
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"20000",
+       "projectsCount":"100",
+       "groupsCount":"300",
+       "about":[
+            {'aboutImage':"image url"},
+            {'aboutDetails':"detailed desciption of project"}
+        ],
+    },
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"5000",
+       "projectsCount":"10",
+       "groupsCount":"300",
+       "about":[
+            {'aboutImage':"image url"},
+            {'aboutDetails':"detailed desciption of project"}
+        ],
+    }
+]
+
+const pendingInstitutionObject = [
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"20000",
+       "projectsCount":"100",
+       "groupsCount":"300",
+       "about":[
+        {'aboutImage':"image url"},
+        {'aboutDetails':"detailed desciption of project"}
+    ],
+    },
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"5000",
+       "projectsCount":"10",
+       "groupsCount":"300",
+       "about":[
+        {'aboutImage':"image url"},
+        {'aboutDetails':"detailed desciption of project"}
+    ],
+    }
+]
+const groupObject = [
+    {
+       "groupName":"Unity Hall Associates",
+       "nickName":"Conti",
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"20000",
+       "projectsCount":"100",
+       "about":[
+        {'aboutImage':"image url"},
+        {'aboutDetails':"detailed desciption of project"}
+    ],
+    },
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"5000",
+       "projectsCount":"10",
+       "about":[
+        {'aboutImage':"image url"},
+        {'aboutDetails':"detailed desciption of project"}
+    ],
+    }
+]
+const joinedGroupObject = [
+    {
+       "groupName":"Unity Hall Associates",
+       "nickName":"Conti",
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"20000",
+       "projectsCount":"100",
+    },
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"5000",
+       "projectsCount":"10",
+    }
+]
+
+const pendingGroupObject = [
+    {
+       "groupName":"Unity Hall Associates",
+       "nickName":"Conti",
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"20000",
+       "projectsCount":"100",
+    },
+    {
+       "institutionName":"Kwame Nkrumah University of Science and Technology",
+       "nickName":"KNUST",
+       "country":"Ghana",
+       "continent":"Africa",
+       "memberCount":"5000",
+       "projectsCount":"10",
+    }
+]
+
+
+
+
+
+
+
+const News = [{
+    "organizationId":"281",
+    "organizationType":"this must be either group or institution",
+    "date":"24th September, 2021",
+    "likes":"200",
+    "dislikes":"20",
+    "shares":"30",
+    "comments":[
+       {
+          "id":"1",
+          "newsId":"3",
+          "sender":"Amanor Kofi",
+          "date":"26th September",
+          "body":"Good to see something been done about this"
+       },
+       {
+          "id":"1",
+          "sender":"Amanor Kofi",
+          "date":"26th September",
+          "body":"Another project,thats wonderful"
+       },
+       {
+          "id":"1",
+          "sender":"Amanor Kofi",
+          "date":"26th September",
+          "body":"Keep it up, guys"
+       },
+       {
+          "id":"1",
+          "sender":"Amanor Kofi",
+          "date":"26th September",
+          "body":"Please finish this project already"
+       }
+    ],
+    "title":"The International Association of Sound and Audiovisual Archives (IASA) 49th Annual Conference",
+    "body":"Open and equal access to information is in high demand, yet may be impeded by social, cultural and economic barriers. The question of access at the same time encourages discussions on the technical, legal, and practical modes of accessibility. These concerns amongst other related issues were addressed under the theme: Access and Accessibility - Archival Policies and Barriers in the Age of Global Information Exchange, at this year’s International Association of Sound and Audiovisual Archives (IASA) 49th Annual Conference.  The conference was hosted by the Institute of African Studies at the University of Ghana from Monday, October 1 to Thursday, October 4, 2018. Papers and tutorials at this year’s annual conference in Ghana focused on the prospects and limitations of global and local access and accessibility to audiovisual archives as well as on issues of discovery, care, preservation, and dissemination of our sound and audiovisual heritage.",
+    "image":"https://objectstorage.uk-london-1.oraclecloud.com/n/lrozpmwftroa/b/almamater/o/1004.jpg"
+ },
+]
+  
+const payment = [
+    {
+        "name":"",
+        "amount":"",
+        "dueDate":"Wed Aug 11 2021 05:15:00 GMT+0000",
+        "organizationId":"281",
+        "organizationType":"this must be either group or institution",
+    }
+]
+    </pre>
+</body>
+</html>
