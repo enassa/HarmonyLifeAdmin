@@ -192,17 +192,17 @@ export const createAgent = (userData) => {
         //    }
 }
 }
-        export const loginInstitution = (userData) => {
+        export const loginFacility= (userData) => {
             return async (dispatch, getState) => {
                 dispatch(changeLoadingState())
 
-        console.log(userData)
+                console.log(userData)
         //    dispatch({type: ACTION_TYPES.SUBMITION_SUCCESS, payload: userData})
         //    if(1) {
             //    let dataToString = makeObjectFromArrayOfObjects(collectedSoFar,answers)
                let urlEncodedData = convertToUrlEncoded(userData)
                console.log(urlEncodedData)
-               axios.post(URL_END_POINTS.LOGIN_INSTITUTION,urlEncodedData, 
+               axios.post(URL_END_POINTS.LOGIN_FACILITY,urlEncodedData, 
                {
                    headers: {
                     'content-Type': 'application/x-www-form-urlencoded',
@@ -211,15 +211,15 @@ export const createAgent = (userData) => {
                ).then((res) => {
                    console.log(res)
                    if(res?.data?.data !==  false){
-                        window.location.assign('/institution/admin')
+                        window.location.assign('/facility/admin')
                    }
                    console.log(res)
+                   dispatch(changeLoadingState())
                     saveObjectInSession('userData', res.data)
                     sessionSave('isActive', "1")
                     saveObjectInLocalStorage('userData', res)
                     localStorageSave('isActive', "1")
                     dispatch({type: ACTION_TYPES.REGISTER_SUCCESS, payload: res.data})
-                    dispatch(changeLoadingState())
                 }).catch((error) => {
                     try {
                         if (error?.response?.data?.errorCode === -222) {

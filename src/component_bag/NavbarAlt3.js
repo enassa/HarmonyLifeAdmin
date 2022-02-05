@@ -7,41 +7,87 @@ import { closeProfileInfo } from '../store/actions/generalActions';
 import { logOut } from '../store/actions/AuthActions';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
-import { Settings } from '@mui/icons-material';
-import AssignPage from '../pages/new_alerts/AssignPage';
-import logo from '../assets/images/greenlogo.png'
-import { fontFamily5 } from '../contants/uiConstants';
+import FromToDatePicker from './FromToDatePicker';
+import { getAsObjectFromLocalStorage } from '../contants/generalFunctions';
+import mtnImage from '../assets/images/mtnlogo.png';
+import vodaImage from '../assets/images/vodafon.png';
+import gloImage from '../assets/images/glologo.jpeg';
+import harmonyGreen from '../assets/images/greenlogo.png';
+import airtelImage from '../assets/images/airtel.png';
+import { fontFamily3 } from '../contants/uiConstants';
+import { getAnswers } from '../store/actions/answersActions';
 
  class NavbarAlt3 extends Component {
     constructor(props){
         super(props)
         this.state = {
             profileInfoState:true,
-            assignPage:false,
         }
     }
-    togglePage = () => {
-        this.setState({assignPage:!this.state.assignPage})
+    getImage = (institutionName) => {
+        let image = institutionName?.split(' ')
+        if(image === undefined){
+            return harmonyGreen
+        }
+        let imageToUse = undefined
+        if(image[0]?.toLowerCase() === 'vodafone'){
+            imageToUse = vodaImage
+        }
+        else if(image[0]?.toLowerCase() === 'mtn'){
+            imageToUse = mtnImage
+        }
+        else if(image[0]?.toLowerCase() === 'glo'){
+            imageToUse = gloImage
+        }
+        else if(image[0]?.toLowerCase() === 'airtel'){
+            imageToUse = airtelImage
+        }
+        return imageToUse;
+    }
+    getColor = (institutionName) => {
+        let image = institutionName?.split(' ')
+        let colorToUse = undefined
+        if(image === undefined){
+            return '#036325'
+        }
+        if(image[0]?.toLowerCase() === 'vodafone'){
+            colorToUse = '#E60001'
+        }
+        else if(image[0]?.toLowerCase() === 'mtn'){
+            colorToUse = '#FFA500'
+        }
+        else if(image[0]?.toLowerCase() === 'glo'){
+            colorToUse = '#008001'
+        }
+        else if(image[0]?.toLowerCase() === 'airtel'){
+            colorToUse = '#D6030F'
+        }
+        return colorToUse;
     }
     render() {
         const style = {
             ...this.props.style
         }
+        let userData = getAsObjectFromLocalStorage('userData')
+        let institutionName = userData?.data?.data?.institutionGroup
+        let institutionBranch = userData?.data?.data?.institution
+        let myImage = this.getImage(institutionName)
+        console.log(userData)
         return (
             <div style={style}  className='width-100-cent elevated-card  padding-l-20 padding-r-20 nate-white-bg height-60 d-flex j-start a-center'>
                 <div className='width-auto a-center height-100-cent'>
-                    {this.state.assignPage?<AssignPage handleDisplay = {() => {this.togglePage()} }/>:null}
-                    <img src={logo} style={{width:40, marginRight:10,height:40}}/>
-                    {/* <Settings onClick = {() => this.togglePage()} style={{cursor:"pointer",}}/> */}
+                    {/* <MenuIcon style={{cursor:"pointer",}}/> */}
                     {/* <LocalFireDepartmentIcon style={{marginLeft:20, color:"DE8908"}}/> */}
-                    <p style={{color:"#036325", fontFamily:fontFamily5}} className='no-break font-1-2-rem '>{this.props.title1}</p>
-                    <FiberManualRecordIcon style={{marginLeft:20, color:"#399A42", width:10, height:10}}/>
-                    <p style={{color:"#036325", fontFamily:fontFamily5}}  className='no-break  margin-l-10'>{this.props.title2}</p>
+                    <p style={{color:this.getColor(institutionName), marginLeft:20,fontFamily:fontFamily3}} className='no-break font-1-2-rem '>{institutionName}</p>
+                    <FiberManualRecordIcon style={{marginLeft:20, color:"black", width:10, height:10}}/>
+                    <p style={{color:this.getColor(institutionName),fontFamily:fontFamily3}} className='no-break  margin-l-10'>{institutionBranch}</p>
                 </div>
-                <div className='width-100-cent height-100-cent '></div>
+                <div className='width-100-cent height-100-cent '>
+                <FromToDatePicker handleChange = {(startDate,endDate) => {this.props.getAnswers(10,startDate,endDate)}}/>
+                </div>
                 <div className=''>
                     <div>
-                        <UserProfile/>
+                        <UserProfile image={myImage}/>
                     </div>
                 </div>
                     {
@@ -58,7 +104,9 @@ import { fontFamily5 } from '../contants/uiConstants';
 const mapDispatchToProps = (dispatch) => {
     return {
         closeProfileInfo : () => dispatch(closeProfileInfo),
-        logOut : () => dispatch(logOut())
+        logOut : () => dispatch(logOut()),
+        getAnswers: (limit=10,startDate,endDate) => dispatch(getAnswers(limit,startDate,endDate)),
+
    }
 }
 const mapStateToProps = (state) => {
@@ -66,4 +114,6 @@ const mapStateToProps = (state) => {
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(NavbarAlt3);
+
+
 

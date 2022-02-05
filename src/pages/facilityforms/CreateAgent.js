@@ -10,13 +10,15 @@ import { getResolvedAlerts, createOrganisation } from '../../store/actions/insti
 import LoadMore from '../../component_bag/LoadMore';
 import { Add } from '@mui/icons-material';
 import AgentCard from '../../component_bag/AgentCard';
-import { capitalizeFirstLetter } from '../../contants/generalFunctions';
+import { capitalizeFirstLetter, getAsObjectFromLocalStorage } from '../../contants/generalFunctions';
 import { FIELDS } from '../../tools/FormGenerator/FormGeneratorFields';
 import FormGenerator from '../../tools/FormGenerator/FormGenerator';
 import OverlayLoader from '../../component_bag/OverlayLoader';
 import MyModal from '../../component_bag/MyModal';
 import { createAgent } from '../../store/actions/facilityActions';
+import MySnackBar from '../../component_bag/MySnackBar';
 let agentObj = {}
+let institutionId = ''
 const alerts = [
     {
         sender:"",
@@ -108,17 +110,21 @@ class CreateAgent extends Component {
     handleSubmit = (data,resetFunc,completed) => {
         this.props.changeLoadingState()
         completed()
-        console.log(data)
-        this.props.createAgent(data)
+        let newDatata = {...data, institutionId:institutionId}
+        this.props.createAgent(newDatata)
     }
     render() {
+        let userData = getAsObjectFromLocalStorage('userData')
+        console.log(userData)
+        institutionId = userData?.data?.data?.institutionId
         return (
             <div className=' curved-corners j-start f-column width-100-cent height-100-cent overflow-hidden max-height-90-cent '>
-                {/* {
+               
+                {
                 this.props.loading
                 ?<OverlayLoader/>
                 :null
-                } */}
+                }
                 
                 <div className='width-100-cent height-100  j-end a-center padding-r-20'>
                     <div style={{paddingLeft:60,color:"grey", fontSize:30,fontWeight:300, fontFamily:fontFamily3}} className='width-100-cent height-50 a-center font-1-2-em'>
@@ -166,6 +172,7 @@ class CreateAgent extends Component {
                         </div> */}
                         <div className='width-100-cent y-scroll padding-30  height-auto f-column j-start a-center'>
                             {/* {this.ejectAgentCreatorFields()} */}
+                            <div  className='width-100-cent j-center '><input style={{border:"1px solid black"}} className="curved-corners-more padding-10" disable value={institutionId}/></div> 
                             <FormGenerator
                             // skipValidation
                             handleOnSubmit = {(data, resetFunc,completed)=>{
@@ -181,7 +188,7 @@ class CreateAgent extends Component {
                                 fieldType: FIELDS.input,
                                 required:true,
                                 name: "username",
-                                label: "Username",
+                                label: "Email",
                                 placeholder: "Username",
                             },
                             {
@@ -195,22 +202,15 @@ class CreateAgent extends Component {
                                 fieldType: FIELDS.input,
                                 required:true,
                                 name: "firstName",
-                                label: "firstName",
+                                label: "Firstname",
                                 placeholder: "Name",
                             },
                             {
                                 fieldType: FIELDS.input,
                                 required:true,
                                 name: "otherName",
-                                label: "otherNames",
+                                label: "Other names",
                                 placeholder: "Name",
-                            },
-                            {
-                                fieldType: FIELDS.input,
-                                required:true,
-                                name: "institutionId",
-                                label: "Institution Id",
-                                placeholder: "Institution Id",
                             },
                             {
                                 fieldType: FIELDS.input,

@@ -14,7 +14,7 @@ import { openSnackBar } from '../../../store/actions/generalActions';
 import OverlayLoader from '../../../component_bag/OverlayLoader';
 import MyModal from '../../../component_bag/MyModal';
 import SimpleNavbar from '../../../component_bag/SimpleNavbar';
-let decodedEmail = ''
+import { loginFacility } from '../../../store/actions/facilityActions';
 class FacilityLogin extends Component {
     constructor(props){
         super(props)
@@ -25,17 +25,11 @@ class FacilityLogin extends Component {
         }
     }
     handleSubmit= (data,resetForm,completed)=>{
-        this.props.changeLoadingState()
         completed()
-        // const myData = {
-        //     'email':data.email?data.email:null,
-        //     'password':data.password?data.password:null,
-        // }
-        this.props.history.push('/facility/admin')
-        // this.props.loginUser(data)        
+        this.props.loginFacility(data)
     }
     render() {
-        decodedEmail = decodeFromB64(getParameterByName('email'))
+        // decodedEmail = decodeFromB64(getParameterByName('email'))
         return (
             <div className='width-100-cent height-100-cent nate-grey-bg all-center nate-white-bg f-column j-start a-center'>
                 <div className='position-fixed top-0 left-0 width-100-cent'>
@@ -55,14 +49,14 @@ class FacilityLogin extends Component {
                     <div style={{borderTop:"2px solid black "}} className='width-400 height-400 curved-corners j-space-around a-center f-column  nate-white-bg elevated-blend padding-30'>
                     <div style={{fontSize:20,fontFamily:fontFamily5}} className='all-center'><Lock/> Branch Login</div>
                     <div className='width-100-cent'>
-                    <div  className='width-100-cent j-center '><input style={{border:"1px solid black"}} className="curved-corners-more padding-10" disable value={decodedEmail}/></div> 
+                    {/* <div  className='width-100-cent j-center '><input style={{border:"1px solid black"}} className="curved-corners-more padding-10" disable value={decodedEmail}/></div>  */}
                     <FormGenerator
                         fields = {[
                             {
                                 fieldType: FIELDS.input,
-                                name: "email",
-                                label: "Username",
-                                placeholder: "FirstName LastName OtherNames",
+                                name: "username",
+                                label: "Email",
+                                placeholder: "Email",
                                 required: true,
                             },
                             {
@@ -91,9 +85,10 @@ class FacilityLogin extends Component {
 
 const mapDispatchToProps = (dispatch) => { 
     return {
-        loginUser: (userData) => dispatch(loginAction(userData)),
+        // loginUser: (userData) => dispatch(loginAction(userData)),
+        // openSnackBar:(message,messageType) => dispatch(openSnackBar(message,messageType)),
         changeLoadingState: (userData) => dispatch(changeLoadingState()),
-        openSnackBar:(message,messageType) => dispatch(openSnackBar(message,messageType))
+        loginFacility:(message,messageType) => dispatch(loginFacility(message,messageType))
     }
 }
 const mapStateToProps = (state) => {

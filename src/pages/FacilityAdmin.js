@@ -12,6 +12,7 @@ import FacilityDashboard from './facilityforms/FacilityDashboard';
 import AgentList from './facilityforms/AgentList';
 import CreateAgent from './facilityforms/CreateAgent';
 import NavbarAlt2 from '../component_bag/NavbarAlt2';
+import MySnackBar from '../component_bag/MySnackBar';
 
 class FacilityAdmin extends Component {
     constructor(props){
@@ -62,7 +63,8 @@ class FacilityAdmin extends Component {
         const {activePage} = this.state;
         return (
             <div className='width-100-cent height-100-cent f-column nate-white-bg j-start'>
-                <NavbarAlt2 style={{borderRadius:"", borderBottom:"1px solid #F7F7F7"}} title1={'MTN Ghana'} title2={'Achimota Branch'}/>
+                 <MySnackBar message={'Creation failed'} snackType={'success'}/>
+                <NavbarAlt3 style={{borderRadius:"", borderBottom:"1px solid #F7F7F7"}} title1={'MTN Ghana'} title2={'Achimota Branch'}/>
                 <div className='width-100-cent height-100-cent j-start '>
                     <div className='min-width-320 d-flex f-column j-center a-start height-100-cent  nate-white-bg'>
                         <div className='width-100-cent height-100 padding-l-20 padding-t-20'>

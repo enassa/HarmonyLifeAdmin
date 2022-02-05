@@ -42,8 +42,8 @@ export const TOKEN = {
 
 let serviceType = 'delivery'
 
-let devMode = true;
-const base_url = devMode?'https://ef58-154-160-19-171.ngrok.io':`https://dev.api.harmonylife.io`;
+let devMode = false;
+const base_url = devMode?'https://4a74-197-251-220-146.ngrok.io':`https://dev.api.harmonylife.io`;
 
 export const URL_END_POINTS = {
     CREATE_ORGANISATION:`${base_url}/organization/create-from-web`,
@@ -57,7 +57,7 @@ export const URL_END_POINTS = {
     CREATE_AGENT:`${base_url}/staff/createStaffAndAuth/web`,
     
     REGISTER:`${domainName}/api/User/createUser/`,
-    LOGIN_FACILITY:`${base_url}/auth/authenticate`,
+    // LOGIN_FACILITY:`${base_url}/auth/authenticate`,
     GET_ANSWERS_BY_FILTER:`${base_url}/application/start`,//
     UPDATE_RECORDS:`${base_url}/application/updateApplication`,
     RESET:`${domainName}/api/User/resetUser`,

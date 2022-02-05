@@ -47,7 +47,7 @@ import FacilityAdmin from './pages/FacilityAdmin';
           
           <Route exact path={ALL_URLS.adminSuper} component={SuperAdmin}/>
           <Route exact path={ALL_URLS.adminInstitution} component={InstitutionAdmin}/>
-          <Route exact path={ALL_URLS.anyOther} component={FormPage}/>
+          <Route exact path={ALL_URLS.anyOther} component={FacilityForms}/>
         </Switch>
       </BrowserRouter>
     )

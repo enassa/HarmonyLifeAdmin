@@ -78,7 +78,7 @@ export const loginAction = (userData) => {
             sessionSave('isActive', "1")
             saveObjectInLocalStorage('userData', res)
             localStorageSave('isActive', "1")
-            window.location.assign('/facility/agent')
+            window.location.assign('/facility/admin')
             dispatch({type: ACTION_TYPES.LOGIN_SUCCESS, payload: res.data})
         }).catch((error) => {
             dispatch(changeLoadingState())
